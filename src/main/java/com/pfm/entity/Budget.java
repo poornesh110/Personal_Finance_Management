@@ -8,21 +8,21 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
-public class Transaction {
+public class Budget {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name;
     private BigDecimal amount;
-    private LocalDateTime date;
-    private String description;
-    private String transactionType; // INCOME, EXPENSE
-
-    @ManyToOne
-    @JoinColumn(name = "account_id")
-    private Account account;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }
