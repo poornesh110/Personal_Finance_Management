@@ -155,7 +155,7 @@ public class TransactionService {
     }
 
     // DSA Implementation: Using a custom trie for auto-categorization based on description
-    private CategorizationTrie categorizationTrie = new CategorizationTrie();
+    private final CategorizationTrie categorizationTrie = new CategorizationTrie();
 
     public void trainCategorizationModel(List<Transaction> transactions) {
         for (Transaction transaction : transactions) {
@@ -171,7 +171,7 @@ public class TransactionService {
 
     // Custom Trie implementation for categorization
     private static class CategorizationTrie {
-        private TrieNode root;
+        private final TrieNode root;
 
         public CategorizationTrie() {
             this.root = new TrieNode();
